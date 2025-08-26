@@ -147,7 +147,7 @@
 
       try{
         // Zuerst: FAQ-Abfrage
-        const faqRes = await fetch("http://127.0.0.1:5000/faq", {
+        const faqRes = await fetch("https://charly2.onrender.com/faq", {
           method: "POST",
           headers: { "Content-Type":"application/json" },
           body: JSON.stringify({ message: text })
@@ -158,7 +158,7 @@
           removeMsg(typingId);
           addMsg("bot", faqData.answer);
         } else { // fallback auf KI
-          const aiRes = await fetch("http://127.0.0.1:5000/chat", {
+          const aiRes = await fetch("https://charly2.onrender.com/chat", {
             method: "POST",
             headers: { "Content-Type":"application/json" },
             body: JSON.stringify({ message: text })
