@@ -19,8 +19,10 @@ def chat():
 def faq():
     data = request.get_json() or {}
     msg = data.get("message", "").strip()
+    if not msg:
+        return jsonify({"answer": ""})
     answer = search_faq(msg)
-    return jsonify({"answer": answer})
+    return jsonify({"answer": answer or ""})
 
 @app.route("/")
 def index():
