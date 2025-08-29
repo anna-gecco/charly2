@@ -28,7 +28,7 @@ def search_faq(question: str):
 
     # --- 2) Fuzzy-Suche mit difflib ---
     faq_questions = [str(row.get("frage", "")).lower().strip() for _, row in df.iterrows()]
-    matches = difflib.get_close_matches(q, faq_questions, n=1, cutoff=0.8)
+    matches = difflib.get_close_matches(q, faq_questions, n=1, cutoff=0.9)
     if matches:
         match = matches[0]
         ans_row = df[df["frage"].str.lower().str.strip() == match]
